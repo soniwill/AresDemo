@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<wxsmith>
+	<object class="wxFrame" name="AresGameInputFrame">
+		<size>869,464</size>
+		<id_arg>0</id_arg>
+		<object class="wxPanel" name="ID_PANEL1" variable="Panel1" member="yes">
+			<pos>0,40</pos>
+			<size>869,500</size>
+			<object class="wxPanel" name="ID_PANEL3" variable="Panel2" member="yes">
+				<pos>20,20</pos>
+				<object class="wxStaticBoxSizer" variable="StaticBoxSizer1" member="no">
+					<label>Movement Controls</label>
+					<object class="sizeritem">
+						<object class="wxGridSizer" variable="GridSizer1" member="no">
+							<cols>3</cols>
+							<rows>3</rows>
+							<object class="spacer">
+								<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+								<border>5</border>
+								<option>1</option>
+								<size>27,14</size>
+							</object>
+							<object class="sizeritem">
+								<object class="wxBitmapButton" name="ID_BITMAPBUTTON1" variable="BitmapButton1" member="yes">
+									<bitmap>/home/willian/src/AresGameInput/images/up.png</bitmap>
+									<handler function="OnBitmapButton1Click1" entry="EVT_BUTTON" />
+								</object>
+								<flag>wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+							</object>
+							<object class="spacer">
+								<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+								<border>5</border>
+								<option>1</option>
+								<size>32,16</size>
+							</object>
+							<object class="sizeritem">
+								<object class="wxBitmapButton" name="ID_BITMAPBUTTON4" variable="BitmapButton4" member="yes">
+									<bitmap>/home/willian/src/AresGameInput/images/left.png</bitmap>
+									<handler function="OnBitmapButton4Click" entry="EVT_BUTTON" />
+								</object>
+								<flag>wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+							</object>
+							<object class="sizeritem">
+								<object class="wxBitmapButton" name="ID_BITMAPBUTTON2" variable="BitmapButton2" member="yes">
+									<bitmap>/home/willian/src/AresGameInput/images/center.png</bitmap>
+									<enabled>0</enabled>
+								</object>
+								<flag>wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+							</object>
+							<object class="sizeritem">
+								<object class="wxBitmapButton" name="ID_BITMAPBUTTON3" variable="BitmapButton3" member="yes">
+									<bitmap>/home/willian/src/AresGameInput/images/right.png</bitmap>
+									<handler function="OnBitmapButton3Click" entry="EVT_BUTTON" />
+								</object>
+								<flag>wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+							</object>
+							<object class="spacer">
+								<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+								<border>5</border>
+								<option>1</option>
+								<size>35,17</size>
+							</object>
+							<object class="sizeritem">
+								<object class="wxBitmapButton" name="ID_BITMAPBUTTON5" variable="BitmapButton5" member="yes">
+									<bitmap>/home/willian/src/AresGameInput/images/down.png</bitmap>
+									<handler function="OnBitmapButton5Click" entry="EVT_BUTTON" />
+								</object>
+								<flag>wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+							</object>
+							<object class="spacer">
+								<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+								<border>5</border>
+								<option>1</option>
+								<size>24,26</size>
+							</object>
+						</object>
+						<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+						<border>5</border>
+						<option>1</option>
+					</object>
+				</object>
+			</object>
+			<object class="wxPanel" name="ID_PANEL2" variable="Panel3" member="yes">
+				<pos>300,20</pos>
+				<object class="wxStaticBoxSizer" variable="StaticBoxSizer2" member="no">
+					<label>Weapon Controls</label>
+					<object class="sizeritem">
+						<object class="wxGridSizer" variable="GridSizer2" member="no">
+							<cols>5</cols>
+							<object class="sizeritem">
+								<object class="wxSlider" name="ID_SLIDER1" variable="Slider1" member="yes">
+									<min>-10</min>
+									<max>60</max>
+									<size>100,130</size>
+									<style>wxSL_VERTICAL|wxSL_LABELS</style>
+									<handler function="OnSlider1CmdScroll" entry="EVT_COMMAND_SCROLL" />
+								</object>
+								<flag>wxLEFT|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+								<border>5</border>
+								<option>1</option>
+							</object>
+							<object class="sizeritem">
+								<object class="wxStaticLine" name="ID_STATICLINE1" variable="StaticLine1" member="yes">
+									<size>10,248</size>
+									<style>wxLI_VERTICAL</style>
+								</object>
+								<flag>wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+								<border>5</border>
+								<option>1</option>
+							</object>
+							<object class="sizeritem">
+								<object class="wxSlider" name="ID_SLIDER2" variable="Slider2" member="yes">
+									<min>-180</min>
+									<max>180</max>
+									<size>100,-1</size>
+									<style>wxSL_HORIZONTAL|wxSL_LABELS</style>
+									<handler function="OnSlider2CmdScroll" entry="EVT_COMMAND_SCROLL" />
+								</object>
+								<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+								<border>5</border>
+								<option>1</option>
+							</object>
+							<object class="sizeritem">
+								<object class="wxStaticLine" name="ID_STATICLINE2" variable="StaticLine2" member="yes">
+									<size>10,248</size>
+									<style>wxLI_VERTICAL</style>
+								</object>
+								<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+								<border>5</border>
+								<option>1</option>
+							</object>
+							<object class="sizeritem">
+								<object class="wxBitmapButton" name="ID_BITMAPBUTTON6" variable="BitmapButton6" member="yes">
+									<size>50,50</size>
+									<handler function="OnBitmapButton6Click" entry="EVT_BUTTON" />
+								</object>
+								<flag>wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL</flag>
+								<option>1</option>
+							</object>
+						</object>
+						<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+						<border>5</border>
+						<option>1</option>
+					</object>
+				</object>
+			</object>
+		</object>
+		<object class="wxMenuBar" variable="MenuBar1" member="no">
+			<object class="wxMenu" variable="Menu1" member="no">
+				<label>&amp;File</label>
+				<object class="wxMenuItem" name="idMenuQuit" variable="MenuItem1" member="no">
+					<label>Quit</label>
+					<accel>Alt-F4</accel>
+					<help>Quit the application</help>
+					<handler function="OnQuit" entry="EVT_MENU" />
+				</object>
+			</object>
+			<object class="wxMenu" variable="Menu2" member="no">
+				<label>Help</label>
+				<object class="wxMenuItem" name="idMenuAbout" variable="MenuItem2" member="no">
+					<label>About</label>
+					<accel>F1</accel>
+					<help>Show info about this application</help>
+					<handler function="OnAbout" entry="EVT_MENU" />
+				</object>
+			</object>
+		</object>
+		<object class="wxStatusBar" name="ID_STATUSBAR1" variable="StatusBar1" member="yes">
+			<fields>1</fields>
+			<widths>-1</widths>
+			<styles>wxSB_NORMAL</styles>
+		</object>
+	</object>
+</wxsmith>

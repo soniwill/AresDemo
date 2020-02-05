@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="AresGameInput" />
+		<Option pch_mode="0" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Debug">
+				<Option output="bin/Debug/AresGameInput" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Debug/" />
+				<Option type="0" />
+				<Option compiler="gcc" />
+				<Option projectLinkerOptionsRelation="2" />
+				<Compiler>
+					<Add option="-g" />
+					<Add directory="include" />
+				</Compiler>
+			</Target>
+			<Target title="Release">
+				<Option output="bin/Release/AresGameInput" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Release/" />
+				<Option type="0" />
+				<Option compiler="gcc" />
+				<Option projectLinkerOptionsRelation="2" />
+				<Compiler>
+					<Add option="-O2" />
+					<Add directory="include" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-Wall" />
+			<Add option="`wx-config --cflags`" />
+			<Add option="-Winvalid-pch" />
+			<Add option="-include wx_pch.h" />
+			<Add option="-std=gnu++17" />
+			<Add option="-DWX_PRECOMP" />
+			<Add option="-DLINUX" />
+			<Add directory="/home/willian/src/AresGameInput/GameNetworkingSockets/include" />
+		</Compiler>
+		<Linker>
+			<Add option="`wx-config --libs`" />
+			<Add library="/home/willian/src/AresGameInput/GameNetworkingSockets/build/src/libGameNetworkingSockets_s.a" />
+		</Linker>
+		<Unit filename="AresGameInputApp.cpp" />
+		<Unit filename="AresGameInputApp.h" />
+		<Unit filename="AresGameInputMain.cpp" />
+		<Unit filename="AresGameInputMain.h" />
+		<Unit filename="include/Logger.h" />
+		<Unit filename="include/LoggerFile.h" />
+		<Unit filename="include/NetworkControl.h" />
+		<Unit filename="include/NetworkFactory.h" />
+		<Unit filename="include/NetworkHandle.h" />
+		<Unit filename="include/NetworkManager.h" />
+		<Unit filename="include/NetworkMessages.h" />
+		<Unit filename="include/NetworkObject.h" />
+		<Unit filename="include/NetworkProtocol.h" />
+		<Unit filename="include/NetworkTcpControl.h" />
+		<Unit filename="include/NetworkTcpFactory.h" />
+		<Unit filename="include/NetworkTcpHandle.h" />
+		<Unit filename="include/NetworkThread.h" />
+		<Unit filename="include/TimeUtil.h" />
+		<Unit filename="src/LoggerFile.cpp" />
+		<Unit filename="src/NetworkManager.cpp" />
+		<Unit filename="src/NetworkMessages.cpp" />
+		<Unit filename="src/NetworkObject.cpp" />
+		<Unit filename="src/NetworkTcpControl.cpp" />
+		<Unit filename="src/NetworkTcpFactory.cpp" />
+		<Unit filename="src/NetworkTcpHandle.cpp" />
+		<Unit filename="src/NetworkThread.cpp" />
+		<Unit filename="src/TimeUtil.cpp" />
+		<Unit filename="wx_pch.h">
+			<Option compile="1" />
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="wxsmith/AresGameInputframe.wxs" />
+		<Extensions>
+			<envvars />
+			<code_completion />
+			<wxsmith version="1">
+				<gui name="wxWidgets" src="AresGameInputApp.cpp" main="AresGameInputFrame" init_handlers="necessary" language="CPP" />
+				<resources>
+					<wxFrame wxs="wxsmith/AresGameInputframe.wxs" src="AresGameInputMain.cpp" hdr="AresGameInputMain.h" fwddecl="0" i18n="1" name="AresGameInputFrame" language="CPP" />
+				</resources>
+			</wxsmith>
+			<debugger />
+			<lib_finder disable_auto="1" />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>
