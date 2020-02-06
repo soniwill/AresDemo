@@ -45,7 +45,12 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
+     <Compile Include="Assets\Source\Extensions\Singleton.cs" />
+     <Compile Include="Assets\Source\GameConnectionButton.cs" />
+     <Compile Include="Assets\Source\GameManagers\GameManager.cs" />
+     <Compile Include="Assets\Source\GameManagers\GameManagerNetwork.cs" />
      <Compile Include="Assets\Source\moveTest.cs" />
+     <Compile Include="Assets\Source\NetworkObject.cs" />
      <Compile Include="Assets\Source\Test.cs" />
  <Reference Include="Unity.Timeline.Editor">
  <HintPath>/home/willian/src/AresUnityDemo/AresUnityDemo/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
