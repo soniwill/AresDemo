@@ -38,6 +38,8 @@ int NetworkTcpControl::DoConnection()
 {
 
     newScktFD = accept(scktFD, (sockaddr*)&cliAddr, &addrCliSize);
+    int flags = fcntl(newScktFD, F_GETFL);
+    fcntl(newScktFD, F_SETFL, flags | O_NONBLOCK);
 
     //if (newScktFD<0) exit(0);
         //return;

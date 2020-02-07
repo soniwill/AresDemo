@@ -9,14 +9,17 @@ public abstract class NetworkObject : MonoBehaviour
 
     private Queue m_messagesPool;
     // Start is called before the first frame update
-    void Start()
+    public virtual void Start()
     {
         GameManagerNetwork.Instance.MessageSent += Write;
+        GameManagerNetwork.Instance.MsgsSubscriptionChecking += CheckMsgSubscription;
+        m_messagesPool = new Queue();
     }
 
     // Update is called once per frame
-    void Update()
+    public virtual void Update()
     {
+        // probably I should be using a thread here, but time is runnig...
         while(m_messagesPool.Count>0)
         {
             string[] msg = (string[])m_messagesPool.Dequeue();
@@ -30,11 +33,11 @@ public abstract class NetworkObject : MonoBehaviour
     
 
     private void AddMsgToPool(string [] msg)
-    {
+    {        
         m_messagesPool.Enqueue(msg);
     }
 
-    public void CheckMsgSubscription(string [] msg)
+    void CheckMsgSubscription(string [] msg)
     {
         foreach (string msgID in m_subscribedMessages)
             {

@@ -25,12 +25,14 @@ class NetworkObject
         virtual ~NetworkObject();
 
         int  DoConnection();
-        void sendMessage(int fd, string msg);
-        void sendMessage(string msg);
+        void SendMessage(int fd, string msg);
+        void SendMessage(string msg);
+        std::string RecvMessage();
         void CloseSckt ();
-        bool isConnected();
-        void LoopMsgPool();
-
+        bool IsConnected();
+        void LoopSentMsgPool();
+        void PopulateRecvMsgPool();
+        void Debug1(string msg);
 
 
     protected:
@@ -40,7 +42,8 @@ class NetworkObject
          NetworkFactory *m_pFactory;
          NetworkControl *m_pNetworkControl;
          NetworkHandle *m_pNetworkHandle;
-         std::queue<string> m_messagesPool;
+         std::queue<string> m_sentMessagesPool;
+         std::queue<string> m_recvMessagesPool;
          LoggerFile m_loggerFile;
 };
 

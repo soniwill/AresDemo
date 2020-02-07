@@ -48,6 +48,25 @@ class NetworkMessages
 
         static string FIRE_WEAPON;// = "FIRE_WEAPON";
 
+         /** \brief This message should be used to inform the server when the client is ready to start the demo.
+         *
+         *
+         *  example: CLIENT_READY;
+         */
+
+
+        static string CLIENT_READY;
+
+         /** \brief This message should be used to order the client start the demo.
+         *
+         *
+         *  example: CLIENT_READY;
+         */
+
+
+        static string START_DEMO;
+
+
     protected:
 
     private:

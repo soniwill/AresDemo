@@ -15,12 +15,15 @@
 //(*Headers(AresGameInputFrame)
 #include <wx/bmpbuttn.h>
 #include <wx/sizer.h>
+#include <wx/button.h>
 #include <wx/menu.h>
 #include <wx/panel.h>
 #include <wx/slider.h>
 #include <wx/statusbr.h>
 #include <wx/statline.h>
 #include <wx/frame.h>
+#include <wx/stattext.h>
+#include <wx/textctrl.h>
 //*)
 #include "include/NetworkThread.h"
 #include "include/NetworkTcpControl.h"
@@ -28,6 +31,10 @@
 #include <algorithm>
 #include "include/NetworkObject.h"
 #include "include/NetworkMessages.h"
+#include "include/Util.h"
+#include <thread>
+#include <vector>
+#include <chrono>
 
 
 
@@ -43,8 +50,10 @@ class AresGameInputFrame: public wxFrame, public wxThreadHelper
         int teste();
         void DoStartThread(wxWindowCreateEvent& event);
         void DoPauseThread();
+        void ProcessMessages();
         void OnThreadCompletion(wxThreadEvent&);
         void OnThreadUpdate(wxThreadEvent&);
+
 
         void OnClose(wxCloseEvent&);
 
@@ -62,6 +71,7 @@ class AresGameInputFrame: public wxFrame, public wxThreadHelper
         void OnSlider1CmdScroll(wxScrollEvent& event);
         void OnSlider2CmdScroll(wxScrollEvent& event);
         void OnBitmapButton6Click(wxCommandEvent& event);
+        void OnButton1Click(wxCommandEvent& event);
         //*)
 
         float front, back, right, left, frontBackValue, rightLeftValue, step;
@@ -83,6 +93,14 @@ class AresGameInputFrame: public wxFrame, public wxThreadHelper
         static const long ID_STATICLINE2;
         static const long ID_BITMAPBUTTON6;
         static const long ID_PANEL2;
+        static const long ID_STATICTEXT1;
+        static const long ID_TEXTCTRL1;
+        static const long ID_BUTTON1;
+        static const long ID_PANEL4;
+        static const long ID_STATICTEXT2;
+        static const long ID_TEXTCTRL2;
+        static const long ID_BUTTON2;
+        static const long ID_PANEL5;
         static const long ID_PANEL1;
         static const long idMenuQuit;
         static const long idMenuAbout;
@@ -95,14 +113,22 @@ class AresGameInputFrame: public wxFrame, public wxThreadHelper
         wxBitmapButton* BitmapButton3;
         wxStaticLine* StaticLine2;
         wxStatusBar* StatusBar1;
+        wxButton* Button1;
+        wxButton* Button2;
+        wxStaticText* StaticText1;
         wxPanel* Panel2;
+        wxPanel* Panel4;
         wxStaticLine* StaticLine1;
+        wxPanel* Panel5;
         wxBitmapButton* BitmapButton5;
         wxBitmapButton* BitmapButton4;
         wxPanel* Panel3;
+        wxTextCtrl* TextCtrl1;
         wxSlider* Slider2;
+        wxStaticText* StaticText2;
         wxSlider* Slider1;
         wxBitmapButton* BitmapButton1;
+        wxTextCtrl* TextCtrl2;
         wxBitmapButton* BitmapButton6;
         //*)
 

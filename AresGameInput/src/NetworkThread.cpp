@@ -26,7 +26,7 @@ wxThread::ExitCode NetworkThread::Entry()
     while (!TestDestroy())
     {
         int socketFD ;
-        if(!obj.isConnected())
+        if(!obj.IsConnected())
         {
             socketFD = obj.DoConnection();
         }
@@ -52,7 +52,7 @@ wxThread::ExitCode NetworkThread::Entry()
         else
         {
             //obj.CloseSckt();
-            obj.sendMessage(socketFD,"Deus é 10");
+            obj.SendMessage(socketFD,"Deus é 10");
             wxThread::This()->Sleep(100);
         }
 

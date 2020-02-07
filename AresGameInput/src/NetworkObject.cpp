@@ -42,34 +42,59 @@ int NetworkObject::DoConnection()
     return socketFD;
 }
 
-bool NetworkObject::isConnected()
+bool NetworkObject::IsConnected()
 {
     return m_connected;
 }
 
-void NetworkObject::LoopMsgPool()
+void NetworkObject::LoopSentMsgPool()
 {
-    while(!m_messagesPool.empty())
+    while(!m_sentMessagesPool.empty())
     {
-        m_pNetworkHandle->SendMessage(m_pNetworkControl->newScktFD, m_messagesPool.front());
-        m_messagesPool.pop();
+        m_pNetworkHandle->SendMessage(m_pNetworkControl->newScktFD, m_sentMessagesPool.front());
+        m_sentMessagesPool.pop();
     }
 }
 
 
-void NetworkObject::sendMessage(int fd, string msg)
+void NetworkObject::SendMessage(int fd, string msg)
 {
     m_pNetworkHandle->SendMessage(fd, msg);
 }
 
-void NetworkObject::sendMessage(string msg)
+void NetworkObject::SendMessage(string msg)
 {
     if(m_pNetworkControl->newScktFD <=0 )
         return; //cant send message;
 
-    m_messagesPool.push(msg);
+    m_sentMessagesPool.push(msg);
     m_loggerFile.write(msg);
 }
+
+std::string NetworkObject::RecvMessage()
+{
+    std::string newMsg ="";
+    if(!m_recvMessagesPool.empty())
+    {
+        newMsg = m_recvMessagesPool.front();
+        m_recvMessagesPool.pop();
+        m_loggerFile.write(newMsg);
+    }
+
+    return newMsg;
+}
+
+void NetworkObject::Debug1(string msg)
+{
+    m_pNetworkHandle->SendMessage(m_pNetworkControl->newScktFD, msg);
+}
+
+void NetworkObject::PopulateRecvMsgPool()
+{
+    std::string newMsg = m_pNetworkHandle->ReadMessage(m_pNetworkControl->newScktFD);
+    m_recvMessagesPool.push(newMsg);
+}
+
 
 void NetworkObject::CloseSckt()
 {

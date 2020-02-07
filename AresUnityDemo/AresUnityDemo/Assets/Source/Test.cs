@@ -17,13 +17,13 @@ public class Test : MonoBehaviour
 
 	private void Start()
 	{
+		DontDestroyOnLoad(gameObject);
 		connectionCoroutine = Connection();
         StartCoroutine(connectionCoroutine);
 	}
 
 	private IEnumerator Connection()
-	{
-		this.socket = new Socket( AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp );		
+	{		
 		int myError = 0;
 		try
 		{

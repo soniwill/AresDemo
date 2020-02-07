@@ -64,6 +64,7 @@
 		<Unit filename="include/NetworkTcpHandle.h" />
 		<Unit filename="include/NetworkThread.h" />
 		<Unit filename="include/TimeUtil.h" />
+		<Unit filename="include/Util.h" />
 		<Unit filename="src/LoggerFile.cpp" />
 		<Unit filename="src/NetworkManager.cpp" />
 		<Unit filename="src/NetworkMessages.cpp" />
@@ -73,6 +74,7 @@
 		<Unit filename="src/NetworkTcpHandle.cpp" />
 		<Unit filename="src/NetworkThread.cpp" />
 		<Unit filename="src/TimeUtil.cpp" />
+		<Unit filename="src/Util.cpp" />
 		<Unit filename="wx_pch.h">
 			<Option compile="1" />
 			<Option weight="0" />
