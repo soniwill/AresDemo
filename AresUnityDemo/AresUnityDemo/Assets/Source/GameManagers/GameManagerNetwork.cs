@@ -27,7 +27,7 @@ public class GameManagerNetwork : Singleton<GameManagerNetwork>
 
     public delegate void sendNetworkMessagesHandler( ref Socket networkSender);  
 
-    public delegate void ServerConnectionHandler();
+    public delegate void ServerConnectionHandler(string SceneName);
 
     public delegate void CheckMsgsSubscriptionHandler (string [] msgItems);
 
@@ -82,16 +82,8 @@ public class GameManagerNetwork : Singleton<GameManagerNetwork>
 		{							
 			if(myError == 10035 )
 			{
-				Debug.Log("Establishing Connection to 127.0.0.1");
-				bool isConnectionFailed1 = this.m_socket.Poll(1000, SelectMode.SelectWrite);					
-				bool isConnectionFailed2 = this.m_socket.Poll(1000, SelectMode.SelectWrite);
-				bool isConnectionFailed3 = this.m_socket.Poll(1000, SelectMode.SelectWrite);
-				Debug.Log("isConnectionFailed1: " + isConnectionFailed1) ;
-				Debug.Log("isConnectionFailed2: " + isConnectionFailed2);
-				Debug.Log("isConnectionFailed3: " + isConnectionFailed3);	
-                //event connected;
-                //m_statusConn.text = "Connected";
-                //m_statusPanel.gameObject.SetActive(false);
+				
+				Debug.Log("connected!");	            
                 OnServerConnection();												
 			}
 			else
@@ -110,9 +102,12 @@ public class GameManagerNetwork : Singleton<GameManagerNetwork>
 
 	private void OnDisable()
 	{
-        byte[] b2 = Encoding.ASCII.GetBytes("CLIENT_DISCONNECTED");		  
-        int i = m_socket.Send(b2);    
-		this.m_socket.Shutdown( SocketShutdown.Both );				
+        byte[] b2 = Encoding.ASCII.GetBytes("CLIENT_DISCONNECTED");
+        if(m_socket!=null)
+        {
+            int i = m_socket.Send(b2);    
+		    this.m_socket.Shutdown( SocketShutdown.Both );				
+        }		          
 	}
     
     void OnServerConnection()

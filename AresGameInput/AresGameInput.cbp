@@ -44,7 +44,6 @@
 		</Compiler>
 		<Linker>
 			<Add option="`wx-config --libs`" />
-			<Add library="/home/willian/src/AresGameInput/GameNetworkingSockets/build/src/libGameNetworkingSockets_s.a" />
 		</Linker>
 		<Unit filename="AresGameInputApp.cpp" />
 		<Unit filename="AresGameInputApp.h" />

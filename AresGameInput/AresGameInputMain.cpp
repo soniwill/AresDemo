@@ -325,6 +325,10 @@ void AresGameInputFrame::ProcessMessages()
                 m_obj->Disconnect();
                 Button1->Enable(false);
             }
+            else if (strings[0]== NetworkMessages::GAME_OVER)
+            {
+                //SHOW MESSAGE WITH THE TIME ELAPSED HITS NUMBER FIRE SHOT AND TIME ELAPSED
+            }
 
         }
         std::this_thread::sleep_for (std::chrono::seconds(1));

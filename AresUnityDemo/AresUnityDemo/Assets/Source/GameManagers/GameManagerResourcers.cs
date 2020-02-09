@@ -31,10 +31,11 @@ public class GameManagerResourcers :  Singleton<GameManagerResourcers>
     {
         float x, y, z;
         
-
+        int i = 0;
         foreach (Target target in m_targetsPfabs)
         {
-            Random.InitState((int)Time.time);
+            ++i;
+            Random.InitState(System.DateTime.Now.Millisecond*i);
             x = Random.Range(-40.0f,40.0f);
             y = Random.Range( 1.40f,8.0f);
             z = Random.Range(-40.0f,40.0f);

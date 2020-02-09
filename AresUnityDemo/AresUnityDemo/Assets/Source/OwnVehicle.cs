@@ -21,11 +21,15 @@ public class OwnVehicle : NetworkObject
     
     private bool m_canProcessBarrelAngle;
     private bool m_canProcessTurretlAngle;
+
+    private bool m_canFireWeapon;
+
     new void Start()
     {
         GameManagerNetwork.Instance.RegisterNetworkObject(this);
         m_canProcessBarrelAngle = false;
-        m_canProcessTurretlAngle = false;        
+        m_canProcessTurretlAngle = false;
+        m_canFireWeapon = false;      
         base.Start();
     }
 
@@ -39,7 +43,12 @@ public class OwnVehicle : NetworkObject
 
         }
         ProcessTurretMovement();
-        ProcessVehicleMovement();   
+        ProcessVehicleMovement(); 
+        if(m_canFireWeapon)
+        {
+            FireWeapon();
+            m_canFireWeapon = false;
+        }  
         base.Update();   
     }   
 
@@ -63,6 +72,10 @@ public class OwnVehicle : NetworkObject
 
             m_xAxis = Mathf.Clamp(m_xAxis,-1.0f,1.0f);
             m_zAxis = Mathf.Clamp(m_zAxis,-1.0f,1.0f);                        
+        }
+        else if(msg[0]=="FIRE_WEAPON")
+        {             
+            m_canFireWeapon = true;                
         }
         //Debug.Log("A mensagem que chegou foi: " + msg[0]);
     }
@@ -101,5 +114,23 @@ public class OwnVehicle : NetworkObject
     public override void Write(ref System.Net.Sockets.Socket networkSender)
     {
         //networkSender.Send()
+    }
+
+    public void FireWeapon()
+    {
+        RaycastHit hit;
+        Camera cam = Camera.main;
+        GameManager.Instance.countFireShots();
+        if(Physics.Raycast(cam.transform.position,cam.transform.forward, out hit, 1000.0f))
+        {
+            Target target = hit.transform.GetComponent<Target>();
+
+            if(target!=null)
+            {
+                Debug.Log(hit.transform.name);
+                target.Die(hit,cam.transform.forward);
+            }
+            
+        }
     }
 }

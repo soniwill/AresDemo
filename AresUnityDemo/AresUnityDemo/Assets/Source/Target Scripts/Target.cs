@@ -5,27 +5,32 @@ using UnityEngine;
 public class Target : MonoBehaviour
 {
     enum MovementPattern {HORIZONTAL,CIRCULAR,SINUSWAVE}
+    Rigidbody m_rB;
+    TargetMovementPattern m_pattern;
+
+    bool isTargetDead = false;
 
     // Start is called before the first frame update
     void Start()
     {
-        Random.InitState(System.DateTime.Now.Millisecond); 
-        int index = Random.Range(0,2);
+        Random.InitState(System.DateTime.Now.Millisecond*GetInstanceID()); 
+        int index = Random.Range(0,3);
         MovementPattern pattern = (MovementPattern)index;
+        m_rB = GetComponent<Rigidbody>();
 
         switch(pattern)
         {
             case MovementPattern.CIRCULAR:
-                gameObject.AddComponent<TargetCircularPattern>();
+                m_pattern = gameObject.AddComponent<TargetCircularPattern>();
                 break;
             case MovementPattern.HORIZONTAL:
-                gameObject.AddComponent<TargetHorizontalPattern>();
+                m_pattern = gameObject.AddComponent<TargetHorizontalPattern>();
                 break;
             case MovementPattern.SINUSWAVE:
-                gameObject.AddComponent<TargetSinusWavePattern>();
+                m_pattern = gameObject.AddComponent<TargetSinusWavePattern>();
                 break;
                 default:
-                 gameObject.AddComponent<TargetHorizontalPattern>();
+                 m_pattern = gameObject.AddComponent<TargetHorizontalPattern>();
                  break;
         }       
     }
@@ -34,5 +39,22 @@ public class Target : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void Die(RaycastHit hit, Vector3 dir)
+    {
+        GameManager.Instance.countTargetsHit();
+        m_rB.isKinematic = false;
+        m_rB.useGravity =true;
+        m_rB.AddForceAtPosition(dir*10,hit.point,ForceMode.VelocityChange);        
+        m_pattern.enabled = false;
+        Animator animator = GetComponentInChildren<Animator>();
+        if(animator!=null) animator.enabled = false;
+        isTargetDead = true;        
+    }
+
+    public bool IsTargetDead
+    {
+        get{return isTargetDead;}
     }
 }

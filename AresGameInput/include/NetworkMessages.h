@@ -66,7 +66,7 @@ class NetworkMessages
 
         static string START_DEMO;
 
-                 /** \brief This message should be used to order the client start the demo.
+         /** \brief This message should be used to order the client start the demo.
          *
          *
          *  example: CLIENT_DISCONNECTED;
@@ -74,6 +74,16 @@ class NetworkMessages
 
 
         static string CLIENT_DISCONNECTED;
+
+        /** \brief This message sent by the client when the demo ends.
+         *
+         *
+         *  example: GAME_OVER;
+         */
+
+
+        static string GAME_OVER;
+
 
 
     protected:
