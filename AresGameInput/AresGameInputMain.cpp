@@ -107,10 +107,10 @@ AresGameInputFrame::AresGameInputFrame(wxWindow* parent,wxWindowID id)
     wxStaticBoxSizer* StaticBoxSizer2;
     wxMenuItem* MenuItem1;
     wxGridSizer* GridSizer1;
+    wxFlexGridSizer* FlexGridSizer1;
     wxMenu* Menu1;
     wxGridSizer* GridSizer4;
     wxGridSizer* GridSizer3;
-    wxGridSizer* GridSizer2;
     wxGridSizer* GridSizer6;
     wxStaticBoxSizer* StaticBoxSizer3;
     wxGridSizer* GridSizer5;
@@ -120,7 +120,7 @@ AresGameInputFrame::AresGameInputFrame(wxWindow* parent,wxWindowID id)
     wxStaticBoxSizer* StaticBoxSizer1;
 
     wxFrame::Create(parent, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, wxDEFAULT_FRAME_STYLE, _T("wxID_ANY"));
-    SetClientSize(wxSize(869,800));
+    SetClientSize(wxSize(869,550));
     Panel1 = new wxPanel(this, ID_PANEL1, wxPoint(0,40), wxSize(869,540), wxTAB_TRAVERSAL, _T("ID_PANEL1"));
     Panel2 = new wxPanel(Panel1, ID_PANEL3, wxPoint(20,20), wxDefaultSize, wxTAB_TRAVERSAL, _T("ID_PANEL3"));
     StaticBoxSizer1 = new wxStaticBoxSizer(wxHORIZONTAL, Panel2, _("Movement Controls"));
@@ -146,18 +146,18 @@ AresGameInputFrame::AresGameInputFrame(wxWindow* parent,wxWindowID id)
     StaticBoxSizer1->SetSizeHints(Panel2);
     Panel3 = new wxPanel(Panel1, ID_PANEL2, wxPoint(300,20), wxDefaultSize, wxTAB_TRAVERSAL, _T("ID_PANEL2"));
     StaticBoxSizer2 = new wxStaticBoxSizer(wxHORIZONTAL, Panel3, _("Weapon Controls"));
-    GridSizer2 = new wxGridSizer(0, 5, 0, 0);
-    Slider1 = new wxSlider(Panel3, ID_SLIDER1, 0, -10, 60, wxDefaultPosition, wxSize(100,130), wxSL_VERTICAL|wxSL_LABELS, wxDefaultValidator, _T("ID_SLIDER1"));
-    GridSizer2->Add(Slider1, 1, wxLEFT|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    FlexGridSizer1 = new wxFlexGridSizer(0, 5, 0, 0);
+    Slider1 = new wxSlider(Panel3, ID_SLIDER1, 0, -10, 60, wxDefaultPosition, wxSize(100,257), wxSL_VERTICAL|wxSL_LABELS, wxDefaultValidator, _T("ID_SLIDER1"));
+    FlexGridSizer1->Add(Slider1, 1, wxBOTTOM|wxEXPAND, 1);
     StaticLine1 = new wxStaticLine(Panel3, ID_STATICLINE1, wxDefaultPosition, wxSize(10,248), wxLI_VERTICAL, _T("ID_STATICLINE1"));
-    GridSizer2->Add(StaticLine1, 1, wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
-    Slider2 = new wxSlider(Panel3, ID_SLIDER2, 0, -180, 180, wxDefaultPosition, wxSize(100,-1), wxSL_HORIZONTAL|wxSL_LABELS, wxDefaultValidator, _T("ID_SLIDER2"));
-    GridSizer2->Add(Slider2, 1, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    FlexGridSizer1->Add(StaticLine1, 1, wxLEFT|wxRIGHT|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 25);
+    Slider2 = new wxSlider(Panel3, ID_SLIDER2, 0, -180, 180, wxDefaultPosition, wxSize(242,73), wxSL_HORIZONTAL|wxSL_AUTOTICKS|wxSL_LABELS, wxDefaultValidator, _T("ID_SLIDER2"));
+    FlexGridSizer1->Add(Slider2, 0, wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 0);
     StaticLine2 = new wxStaticLine(Panel3, ID_STATICLINE2, wxDefaultPosition, wxSize(10,248), wxLI_VERTICAL, _T("ID_STATICLINE2"));
-    GridSizer2->Add(StaticLine2, 1, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    FlexGridSizer1->Add(StaticLine2, 0, wxLEFT|wxRIGHT|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 25);
     BitmapButton6 = new wxBitmapButton(Panel3, ID_BITMAPBUTTON6, wxNullBitmap, wxDefaultPosition, wxSize(50,50), wxBU_AUTODRAW, wxDefaultValidator, _T("ID_BITMAPBUTTON6"));
-    GridSizer2->Add(BitmapButton6, 1, wxALL|wxALIGN_LEFT|wxALIGN_CENTER_VERTICAL, 0);
-    StaticBoxSizer2->Add(GridSizer2, 1, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    FlexGridSizer1->Add(BitmapButton6, 0, wxRIGHT|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 25);
+    StaticBoxSizer2->Add(FlexGridSizer1, 1, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
     Panel3->SetSizer(StaticBoxSizer2);
     StaticBoxSizer2->Fit(Panel3);
     StaticBoxSizer2->SetSizeHints(Panel3);
@@ -215,8 +215,8 @@ AresGameInputFrame::AresGameInputFrame(wxWindow* parent,wxWindowID id)
     Connect(ID_BITMAPBUTTON3,wxEVT_COMMAND_BUTTON_CLICKED,(wxObjectEventFunction)&AresGameInputFrame::OnBitmapButton3Click);
     Connect(ID_BITMAPBUTTON5,wxEVT_COMMAND_BUTTON_CLICKED,(wxObjectEventFunction)&AresGameInputFrame::OnBitmapButton5Click);
     Connect(ID_BITMAPBUTTON6,wxEVT_COMMAND_BUTTON_CLICKED,(wxObjectEventFunction)&AresGameInputFrame::OnBitmapButton6Click);
-    Connect(ID_SLIDER1,wxEVT_SCROLL_THUMBTRACK|wxEVT_SCROLL_CHANGED,(wxObjectEventFunction)&AresGameInputFrame::OnSlider1CmdScroll);
-    Connect(ID_SLIDER2,wxEVT_SCROLL_THUMBTRACK|wxEVT_SCROLL_CHANGED,(wxObjectEventFunction)&AresGameInputFrame::OnSlider2CmdScroll);
+    Connect(ID_SLIDER1,wxEVT_SCROLL_THUMBTRACK,(wxObjectEventFunction)&AresGameInputFrame::OnSlider1CmdScroll);
+    Connect(ID_SLIDER2,wxEVT_SCROLL_THUMBTRACK,(wxObjectEventFunction)&AresGameInputFrame::OnSlider2CmdScroll);
     Connect(ID_BUTTON1,wxEVT_COMMAND_BUTTON_CLICKED,(wxObjectEventFunction)&AresGameInputFrame::OnButton1Click);
     Connect(idMenuQuit,wxEVT_COMMAND_MENU_SELECTED,(wxObjectEventFunction)&AresGameInputFrame::OnQuit);
     Connect(idMenuAbout,wxEVT_COMMAND_MENU_SELECTED,(wxObjectEventFunction)&AresGameInputFrame::OnAbout);
@@ -231,9 +231,11 @@ AresGameInputFrame::AresGameInputFrame(wxWindow* parent,wxWindowID id)
     back    = 50.0f;
     right   = 50.0f;
     left    = 50.0f;
-    frontBackValue  = 0.0f;
-    rightLeftValue  = 0.0f;
-    step  = 1.0f;
+
+    m_zAxis = 0.0f;
+    m_xAxis = 0.0f;
+
+    m_step  = 0.1f;
     m_obj = new NetworkObject();
     start();
 }
@@ -270,7 +272,7 @@ wxThread::ExitCode AresGameInputFrame::Entry()
             m_obj->PopulateRecvMsgPool();
             m_obj->LoopSentMsgPool();
             //m_obj->Debug1("Execução de teste");
-            wxThread::This()->Sleep(1000);
+            wxThread::This()->Sleep(100);
         }
 
     }
@@ -318,6 +320,12 @@ void AresGameInputFrame::ProcessMessages()
             {
                 Button1->Enable(true);
             }
+            else if (strings[0]== NetworkMessages::CLIENT_DISCONNECTED)
+            {
+                m_obj->Disconnect();
+                Button1->Enable(false);
+            }
+
         }
         std::this_thread::sleep_for (std::chrono::seconds(1));
         //std::this_thread:: (std::chrono::seconds(0.5f));
@@ -403,38 +411,49 @@ void AresGameInputFrame::OnAbout(wxCommandEvent& event)
 
 void AresGameInputFrame::OnBitmapButton1Click1(wxCommandEvent& event)
 {
-    front = front + step;
-    back = back - step;
-    front = std::clamp(front,0.0f,100.0f);
-    back = std::clamp(back,0.0f,100.0f);
-    m_obj->SendMessage(NetworkMessages::MOVEMENT_PLAYER + ";" + to_str(front) + ";" + to_str(back) + ";" + to_str(left) + ";" + to_str(right));
+    m_zAxis = m_step;
+    //m_front = m_front + step;
+    //m_back = m_back - step;
+    //m_front = std::clamp(m_front,0.0f,100.0f);
+    //m_back = std::clamp(m_back,0.0f,100.0f);
+    //m_zAxis = std::clamp(m_zAxis,-3.0f,3.0f);
+    m_obj->SendMessage(NetworkMessages::MOVEMENT_PLAYER + ";" + to_str(m_zAxis) +  ";0.0");
 }
 
 void AresGameInputFrame::OnBitmapButton5Click(wxCommandEvent& event)
 {
-    front = front - step;
-    back = back + step;
-    front = std::clamp(front,0.0f,100.0f);
-    back = std::clamp(back,0.0f,100.0f);
-    m_obj->SendMessage(NetworkMessages::MOVEMENT_PLAYER + ";" + to_str(front) + ";" + to_str(back) + ";" + to_str(left) + ";" + to_str(right));
+    m_zAxis = -m_step ;
+    //m_zAxis = std::clamp(m_zAxis,-3.0f,3.0f);
+    //m_front = m_front - step;
+    //m_back = m_back + step;
+    //m_front = std::clamp(m_front,0.0f,100.0f);
+    //m_back = std::clamp(m_back,0.0f,100.0f);
+    //m_obj->SendMessage(NetworkMessages::MOVEMENT_PLAYER + ";" + to_str(m_front) + ";" + to_str(m_back) + ";" + to_str(m_left) + ";" + to_str(m_right));
+    m_obj->SendMessage(NetworkMessages::MOVEMENT_PLAYER + ";" + to_str(m_zAxis) +  ";0.0");
 }
 
 void AresGameInputFrame::OnBitmapButton4Click(wxCommandEvent& event)
 {
-    left = left + step;
-    right = right - step;
-    left = std::clamp(left,0.0f,100.0f);
-    right = std::clamp(right,0.0f,100.0f);
-    m_obj->SendMessage(NetworkMessages::MOVEMENT_PLAYER + ";" + to_str(front) + ";" + to_str(back) + ";" + to_str(left) + ";" + to_str(right));
+    m_xAxis = -m_step;
+    //m_xAxis = std::clamp(m_xAxis,-3.0f,3.0f);
+    //m_left = m_left + step;
+    //m_right = m_right - step;
+    //m_left = std::clamp(m_left,0.0f,100.0f);
+    //m_right = std::clamp(m_right,0.0f,100.0f);
+    //m_obj->SendMessage(NetworkMessages::MOVEMENT_PLAYER + ";" + to_str(m_front) + ";" + to_str(m_back) + ";" + to_str(m_left) + ";" + to_str(m_right));
+    m_obj->SendMessage(NetworkMessages::MOVEMENT_PLAYER + ";0.0;" + to_str(m_xAxis));
 }
 
 void AresGameInputFrame::OnBitmapButton3Click(wxCommandEvent& event)
 {
-    left = left - step;
-    right = right + step;
-    left = std::clamp(left,0.0f,100.0f);
-    right = std::clamp(right,0.0f,100.0f);
-    m_obj->SendMessage(NetworkMessages::MOVEMENT_PLAYER + ";" + to_str(front) + ";" + to_str(back) + ";" + to_str(left) + ";" + to_str(right));
+    m_xAxis = m_step;
+    //m_xAxis = std::clamp(m_xAxis,-3.0f,3.0f);
+    //m_left = m_left - step;
+    //m_right = m_right + step;
+    //m_left = std::clamp(m_left,0.0f,100.0f);
+    //m_right = std::clamp(m_right,0.0f,100.0f);
+    //m_obj->SendMessage(NetworkMessages::MOVEMENT_PLAYER + ";" + to_str(m_front) + ";" + to_str(m_back) + ";" + to_str(m_left) + ";" + to_str(m_right));
+    m_obj->SendMessage(NetworkMessages::MOVEMENT_PLAYER +  ";0.0;"  + to_str(m_xAxis));
 }
 
 void AresGameInputFrame::OnSlider1CmdScroll(wxScrollEvent& event)

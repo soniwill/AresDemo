@@ -51,8 +51,7 @@ public class GameManagerNetwork : Singleton<GameManagerNetwork>
 		{
 			this.m_socket = new Socket( AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp );
 			this.m_socket.Blocking = false;			
-        	this.m_socket.Connect(serverIpAdress, serverPort); 	
-           // this.m_socket.Connect("127.0.0.1", 54003);
+        	this.m_socket.Connect(serverIpAdress, serverPort); 	           
 		}
 
 		catch (SocketException e)
@@ -100,7 +99,7 @@ public class GameManagerNetwork : Singleton<GameManagerNetwork>
 				Debug.Log("the Error number is: " + myError);
 				break;
 			}
-			yield return new WaitForSeconds(1.0f);
+			yield return new WaitForSeconds(0.5f);
 		}				
 	}                 
     public void OnConnect(string serverIpAdress, int serverPort)
@@ -111,6 +110,8 @@ public class GameManagerNetwork : Singleton<GameManagerNetwork>
 
 	private void OnDisable()
 	{
+        byte[] b2 = Encoding.ASCII.GetBytes("CLIENT_DISCONNECTED");		  
+        int i = m_socket.Send(b2);    
 		this.m_socket.Shutdown( SocketShutdown.Both );				
 	}
     
@@ -159,8 +160,8 @@ public class GameManagerNetwork : Singleton<GameManagerNetwork>
 		// catch(SocketException e){}
         if(this.m_socket!=null && this.m_socket.Connected)
         {
-            GetNetworkMessages();
-            OnNetworkMessagesSent(); 
+            OnNetworkMessagesSent();
+            GetNetworkMessages();             
         }
     }
 
@@ -176,12 +177,7 @@ public class GameManagerNetwork : Singleton<GameManagerNetwork>
             Array.Clear(m_bytes,0,m_bytes.Length);
 			int i = this.m_socket.Receive(m_bytes);
             if(i>0) msg = Encoding.UTF8.GetString(m_bytes,0,i);
-            string[] result = msg.Split( new char[] {';'},StringSplitOptions.None);
-            Debug.Log("mensagem: " + result[0]);
-            if(result[0]=="START_DEMO")
-            {
-                int p = 7;
-            }
+            string[] result = msg.Split( new char[] {';'},StringSplitOptions.None);                       
             CheckMsgsSubscription(result);
 		}
 		catch(SocketException e)
@@ -192,13 +188,6 @@ public class GameManagerNetwork : Singleton<GameManagerNetwork>
 
     void CheckMsgsSubscription(string[] msg)
     {
-        //acho que seria melhor usar aqui o delegate/event. Objeto chamaria de forma independente a checagem
-        //eu não precisaria fazer esse loop e ainda não deixaria o método dentro do loop exposto de forma publica.
-        //vou primeiro verificar se tudo esta funcionando dessa forma e se sim tento usando delegates.
-        // foreach (NetworkObject nGO in m_networkObjects) 
-        // {
-        //     nGO.CheckMsgSubscription(msg);
-        // }
 
         MsgsSubscriptionChecking(msg);
     }    

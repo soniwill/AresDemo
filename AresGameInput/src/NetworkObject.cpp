@@ -42,6 +42,15 @@ int NetworkObject::DoConnection()
     return socketFD;
 }
 
+void NetworkObject::Disconnect()
+{
+    if(IsConnected())
+    {
+        m_pNetworkControl->Disconnect();
+    }
+}
+
+
 bool NetworkObject::IsConnected()
 {
     return m_connected;
@@ -53,6 +62,7 @@ void NetworkObject::LoopSentMsgPool()
     {
         m_pNetworkHandle->SendMessage(m_pNetworkControl->newScktFD, m_sentMessagesPool.front());
         m_sentMessagesPool.pop();
+        std::this_thread::sleep_for (std::chrono::milliseconds(50));
     }
 }
 
@@ -79,6 +89,7 @@ std::string NetworkObject::RecvMessage()
         newMsg = m_recvMessagesPool.front();
         m_recvMessagesPool.pop();
         m_loggerFile.write(newMsg);
+
     }
 
     return newMsg;
@@ -92,6 +103,7 @@ void NetworkObject::Debug1(string msg)
 void NetworkObject::PopulateRecvMsgPool()
 {
     std::string newMsg = m_pNetworkHandle->ReadMessage(m_pNetworkControl->newScktFD);
+    if(newMsg=="") return;
     m_recvMessagesPool.push(newMsg);
 }
 

@@ -26,11 +26,11 @@ public class TargetSinusWavePattern : TargetMovementPattern
         float horValue = Mathf.PingPong(Time.time*m_speed, m_horMagnitude);
         horValue = normalizeRange(horValue, 0,m_horMagnitude,m_minHorRange,m_maxHorRange);
         m_pos = transform.forward *  horValue; 
-        float sinWaveValue =  Mathf.Sin (Time.time * m_frequency) * m_magnitude; 
-        sinWaveValue = normalizeRange(sinWaveValue,-m_magnitude,m_magnitude,2,m_magnitude);       
+        float sinWaveValue =  Mathf.Sin (Time.time * m_frequency) * m_magnitude + m_magnitude+3; 
+        //sinWaveValue = normalizeRange(sinWaveValue,-m_magnitude,m_magnitude,2,m_magnitude);       
         transform.position = m_pos + m_axis * sinWaveValue;
         
-        Debug.Log ("Sin Value: "+ sinWaveValue);
+        //Debug.Log ("Sin Value: "+ sinWaveValue);
     }
 
     

@@ -15,6 +15,7 @@
 #include "NetworkHandle.h"
 #include <queue>
 #include "LoggerFile.h"
+#include <thread>
 
 class NetworkObject
 {
@@ -25,6 +26,7 @@ class NetworkObject
         virtual ~NetworkObject();
 
         int  DoConnection();
+        void Disconnect();
         void SendMessage(int fd, string msg);
         void SendMessage(string msg);
         std::string RecvMessage();

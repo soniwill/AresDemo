@@ -4,7 +4,12 @@ using UnityEngine;
 
 public class GameManagerResourcers :  Singleton<GameManagerResourcers>
 {
-    public TargetMovementPattern [] m_targetMovementPatterns;
+    
+    public Transform m_projectilePfabs;
+
+    public OwnVehicle m_ownVehiclePfabs;
+
+    public Target [] m_targetsPfabs;
 
     void Awake()
     {
@@ -21,4 +26,35 @@ public class GameManagerResourcers :  Singleton<GameManagerResourcers>
     {
         
     }
+
+    public void spawnTargets()
+    {
+        float x, y, z;
+        
+
+        foreach (Target target in m_targetsPfabs)
+        {
+            Random.InitState((int)Time.time);
+            x = Random.Range(-40.0f,40.0f);
+            y = Random.Range( 1.40f,8.0f);
+            z = Random.Range(-40.0f,40.0f);
+
+            Vector3 pos = new Vector3(x,y,z);
+            Instantiate(target,pos,Quaternion.identity);
+        }
+    }
+
+     public void SpawnOwnVehicle()
+    {
+        Random.InitState(System.DateTime.Now.Millisecond);
+        float x, y, z;
+        x = Random.Range(-40.0f,40.0f);
+        y = 1.39f;
+        z = Random.Range(-40.0f,40.0f);
+
+        Vector3 pos = new Vector3(x,y,z);
+
+        Instantiate(m_ownVehiclePfabs,pos, Quaternion.identity);
+    }
+
 }

@@ -1654,7 +1654,7 @@
 1580336590 /home/willian/src/AresGameInput/AresGameInputApp.h
 	<wx/app.h>
 
-1581027259 /home/willian/src/AresGameInput/AresGameInputMain.h
+1581208602 /home/willian/src/AresGameInput/AresGameInputMain.h
 	<wx/bmpbuttn.h>
 	<wx/sizer.h>
 	<wx/button.h>
@@ -1738,7 +1738,7 @@
 1522244266 /usr/include/wx-3.0/wx/gtk/dnd.h
 	"wx/icon.h"
 
-1581064627 source:/home/willian/src/AresGameInput/AresGameInputMain.cpp
+1581210809 source:/home/willian/src/AresGameInput/AresGameInputMain.cpp
 	"wx_pch.h"
 	"AresGameInputMain.h"
 	<wx/msgdlg.h>
@@ -1750,10 +1750,10 @@
 	<wx/bitmap.h>
 	<wx/image.h>
 
-1581056524 source:/home/willian/src/AresGameInput/src/NetworkObject.cpp
+1581196773 source:/home/willian/src/AresGameInput/src/NetworkObject.cpp
 	"NetworkObject.h"
 
-1581056571 /home/willian/src/AresGameInput/include/NetworkObject.h
+1581196661 /home/willian/src/AresGameInput/include/NetworkObject.h
 	<iostream>
 	<sys/types.h>
 	<unistd.h>
@@ -1768,6 +1768,7 @@
 	"NetworkHandle.h"
 	<queue>
 	"LoggerFile.h"
+	<thread>
 
 1581060404 source:/home/willian/src/AresGameInput/src/NetworkTcpControl.cpp
 	"NetworkTcpControl.h"
@@ -1849,10 +1850,10 @@
 1522244266 /usr/include/wx-3.0/wx/gtk/statline.h
 	"wx/defs.h"
 
-1581014416 source:/home/willian/src/AresGameInput/src/NetworkMessages.cpp
+1581196906 source:/home/willian/src/AresGameInput/src/NetworkMessages.cpp
 	"NetworkMessages.h"
 
-1581004079 /home/willian/src/AresGameInput/include/NetworkMessages.h
+1581196401 /home/willian/src/AresGameInput/include/NetworkMessages.h
 	<string.h>
 
 1580697941 source:/home/willian/src/AresGameInput/src/NetworkManager.cpp

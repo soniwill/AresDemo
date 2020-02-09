@@ -74,7 +74,8 @@ class AresGameInputFrame: public wxFrame, public wxThreadHelper
         void OnButton1Click(wxCommandEvent& event);
         //*)
 
-        float front, back, right, left, frontBackValue, rightLeftValue, step;
+        float front, back, right, left, frontBackValue, rightLeftValue, m_step;
+        float m_zAxis, m_xAxis;
 
 
 

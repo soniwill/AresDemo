@@ -14,6 +14,7 @@ public class GameManager : Singleton<GameManager>
     void Start()
     {
         GameManagerNetwork.Instance.ConnectionDone += LoadScene;
+        SceneManager.sceneLoaded+=OnSceneLoaded;
         SceneManager.LoadScene("Main_menu", LoadSceneMode.Single);
     }
 
@@ -26,6 +27,15 @@ public class GameManager : Singleton<GameManager>
     public void LoadScene()
     {
         SceneManager.LoadScene("World_scene", LoadSceneMode.Single);
+    }
+
+    public void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        if(scene.name=="World_scene")
+        {
+            GameManagerResourcers.Instance.spawnTargets();
+            GameManagerResourcers.Instance.SpawnOwnVehicle();
+        }
     }
 
     

@@ -12,6 +12,8 @@ public class TargetCircularPattern : TargetMovementPattern
     new void Start()
     {
         xyz = new Vector3();
+        center = center + transform.up*(m_radius+3);
+
     }
 
     public override void move()

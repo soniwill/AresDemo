@@ -60,11 +60,20 @@ class NetworkMessages
          /** \brief This message should be used to order the client start the demo.
          *
          *
-         *  example: CLIENT_READY;
+         *  example: START_DEMO;
          */
 
 
         static string START_DEMO;
+
+                 /** \brief This message should be used to order the client start the demo.
+         *
+         *
+         *  example: CLIENT_DISCONNECTED;
+         */
+
+
+        static string CLIENT_DISCONNECTED;
 
 
     protected:
