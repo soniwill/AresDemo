@@ -156,6 +156,7 @@ MonoBehaviour:
   m_targetsPfabs:
   - {fileID: 688621264817188977, guid: 0c43e7227782c2dba97b8d17df25f873, type: 3}
   - {fileID: -3357179027746578877, guid: 6bae2a43904864747b1940891260a67f, type: 3}
+  - {fileID: 7366283409362653691, guid: 87d3921cf7ccf2dbe80d0afe6fa2cf3c, type: 3}
 --- !u!4 &750270529
 Transform:
   m_ObjectHideFlags: 0
@@ -246,10 +247,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 366306886, guid: 3ef36bf1149093b07b730c2ed35701c4, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 3033617416156601030, guid: 3ef36bf1149093b07b730c2ed35701c4,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -309,11 +306,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: GameManager
-      objectReference: {fileID: 0}
-    - target: {fileID: 6359872493022475613, guid: 3ef36bf1149093b07b730c2ed35701c4,
-        type: 3}
-      propertyPath: m_secondsLeft
-      value: 12000
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3ef36bf1149093b07b730c2ed35701c4, type: 3}

@@ -11,8 +11,11 @@ public class GameManagerResourcers :  Singleton<GameManagerResourcers>
 
     public Target [] m_targetsPfabs;
 
+    public List<Target> m_targetsInstantiated;
+
     void Awake()
     {
+        
         DontDestroyOnLoad(gameObject);
     }
     // Start is called before the first frame update
@@ -41,7 +44,7 @@ public class GameManagerResourcers :  Singleton<GameManagerResourcers>
             z = Random.Range(-40.0f,40.0f);
 
             Vector3 pos = new Vector3(x,y,z);
-            Instantiate(target,pos,Quaternion.identity);
+            m_targetsInstantiated.Add(Instantiate(target,pos,Quaternion.identity));
         }
     }
 

@@ -56,13 +56,13 @@ public class OwnVehicle : NetworkObject
     {
         if(msg[0]=="WEAPON_ROTATION")
         {
-            m_turretAngle = float.Parse(msg[1]);
+            m_turretAngle = float.Parse(msg[1], CultureInfo.InvariantCulture);
             m_canProcessTurretlAngle = true;            
                     
         }
         else if(msg[0]=="WEAPON_ELEVATION")
         {
-            m_barrelAngle = float.Parse(msg[1]);
+            m_barrelAngle = float.Parse(msg[1], CultureInfo.InvariantCulture);
             m_canProcessBarrelAngle = true;            
         }
         else if(msg[0]=="MOVEMENT_PLAYER")

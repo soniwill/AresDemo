@@ -2,22 +2,11 @@
 
 NetworkObject::NetworkObject()
 {
-    //tcpHandle = new NetworkTcpHandle();
-    //tcpControl = new NetworkTcpControl();
+
     m_connected = false;
     m_pFactory = new NetworkTcpFactory();
     m_pNetworkControl = m_pFactory->GetControl();
     m_pNetworkHandle =  m_pFactory->GetHandle();
-
-
-
-
-
-    //int socketFD = tcpControl->DoConnection();
-
-//    tcpHandle->SendMessage(socketFD,"Deus eh 10");
-//    string msg = tcpHandle->ReadMessage(socketFD);
-//    tcpControl->Disconnect();
 }
 
 NetworkObject::~NetworkObject()

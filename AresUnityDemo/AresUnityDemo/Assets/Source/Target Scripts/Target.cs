@@ -41,6 +41,12 @@ public class Target : MonoBehaviour
         
     }
 
+    void OnCollisionEnter(Collision collision)
+    {
+       if (collision.gameObject.name=="Floor" && isTargetDead==true)
+        gameObject.SetActive(false);
+    }
+
     public void Die(RaycastHit hit, Vector3 dir)
     {
         GameManager.Instance.countTargetsHit();

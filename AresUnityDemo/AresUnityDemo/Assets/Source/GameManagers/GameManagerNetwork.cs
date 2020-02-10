@@ -62,10 +62,8 @@ public class GameManagerNetwork : Singleton<GameManagerNetwork>
 
 		while (!this.m_socket.Connected)
 		{
-            //event Trying connection;
-            //m_statusPanel.gameObject.SetActive(true);
-			Debug.Log("Could not connect. is the server ready? trying again in 3 seconds");
-            //m_statusConn.text = "Trying connection";
+
+			Debug.Log("Could not connect. is the server ready? trying again in 3 seconds");            
 			yield return new WaitForSeconds(3.0f);
 			try
 			{
@@ -133,26 +131,7 @@ public class GameManagerNetwork : Singleton<GameManagerNetwork>
 
     // Update is called once per frame
     void Update()
-    {
-        // byte[] bytes = new byte[256];
-		// try
-		// {
-		// 	int i = this.m_socket.Receive(bytes);
-
-		// 	string strTest = Encoding.UTF8.GetString(bytes);
-		// 	Debug.Log(strTest);
-		// 	//string[] result = strTest.Split( new char[] {';'},StringSplitOptions.None);
-		// 	// if(result[0]=="MOVEMENT_PLAYER")
-		// 	// {
-		// 	// 	Rigidbody rB =  playerObject.GetComponent<Rigidbody>();
-		// 	// 	rB.AddRelativeForce(.0f,.0f,float.Parse(result[1]));
-		// 	// 	rB.AddRelativeForce(.0f,.0f,-float.Parse(result[2]));
-		// 	// 	Debug.Log("PRIMEIRA FORÇA: "+float.Parse(result[1]));
-		// 	// 	Debug.Log("SEGUNDA FORÇA: "+float.Parse(result[2]));
-		// 	// }			
-			
-		// }
-		// catch(SocketException e){}
+    {        
         if(this.m_socket!=null && this.m_socket.Connected)
         {
             OnNetworkMessagesSent();
@@ -176,9 +155,7 @@ public class GameManagerNetwork : Singleton<GameManagerNetwork>
             CheckMsgsSubscription(result);
 		}
 		catch(SocketException e)
-        {
-            //Debug.Log(e.Message);
-        }
+        {}
     }
 
     void CheckMsgsSubscription(string[] msg)

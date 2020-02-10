@@ -282,18 +282,7 @@ wxThread::ExitCode AresGameInputFrame::Entry()
 
 void AresGameInputFrame::DoStartThread(wxWindowCreateEvent& event)
 {
-    //start();
-//    m_pThread = new NetworkThread(this);
-//    if ( m_pThread->Run() != wxTHREAD_NO_ERROR )
-//    {
-//        wxLogError("Can't create the thread!");
-//        delete m_pThread;
-//        m_pThread = NULL;
-//    }
-    // after the call to wxThread::Run(), the m_pThread pointer is "unsafe":
-    // at any moment the thread may cease to exist (because it completes its work).
-    // To avoid dangling pointers OnThreadExit() will set m_pThread
-    // to NULL when the thread dies.
+
 }
 
 void AresGameInputFrame::OnThreadCompletion(wxThreadEvent& event)
@@ -332,25 +321,12 @@ void AresGameInputFrame::ProcessMessages()
 
         }
         std::this_thread::sleep_for (std::chrono::seconds(1));
-        //std::this_thread:: (std::chrono::seconds(0.5f));
+
     }
 }
 void AresGameInputFrame::DoPauseThread()
 {
-    // anytime we access the m_pThread pointer we must ensure that it won't
-    // be modified in the meanwhile; since only a single thread may be
-    // inside a given critical section at a given time, the following code
-    // is safe:
-//    wxCriticalSectionLocker enter(m_pThreadCS);
-//    if (m_pThread)         // does the thread still exist?
-//    {
-//        // without a critical section, once reached this point it may happen
-//        // that the OS scheduler gives control to the MyThread::Entry() function,
-//        // which in turn may return (because it completes its work) making
-//        // invalid the m_pThread pointer
-//        if (m_pThread->Pause() != wxTHREAD_NO_ERROR )
-//            wxLogError("Can't pause the thread!");
-//    }
+
 }
 void AresGameInputFrame::OnClose(wxCloseEvent& event)
 {
@@ -358,28 +334,7 @@ void AresGameInputFrame::OnClose(wxCloseEvent& event)
         GetThread()->IsRunning())
         GetThread()->Delete();
     Destroy();
-//    {
-//        wxCriticalSectionLocker enter(m_pThreadCS);
-//        if (m_pThread)         // does the thread still exist?
-//        {
-//            m_pThread->closeCliFD();
-//            wxMessageOutputDebug().Printf("AresGameInputFrame: deleting thread");
-//            if (m_pThread->Delete() != wxTHREAD_NO_ERROR )
-//                wxLogError("Can't delete the thread!");
-//        }
-//    }       // exit from the critical section to give the thread
-//            // the possibility to enter its destructor
-//            // (which is guarded with m_pThreadCS critical section!)
-//    while (1)
-//    {
-//        { // was the ~MyThread() function executed?
-//            wxCriticalSectionLocker enter(m_pThreadCS);
-//            if (!m_pThread) break;
-//        }
-//        // wait for thread completion
-//        wxThread::This()->Sleep(100);
-//    }
-//    Destroy();
+
 }
 
 void AresGameInputFrame::start()
@@ -416,47 +371,28 @@ void AresGameInputFrame::OnAbout(wxCommandEvent& event)
 void AresGameInputFrame::OnBitmapButton1Click1(wxCommandEvent& event)
 {
     m_zAxis = m_step;
-    //m_front = m_front + step;
-    //m_back = m_back - step;
-    //m_front = std::clamp(m_front,0.0f,100.0f);
-    //m_back = std::clamp(m_back,0.0f,100.0f);
-    //m_zAxis = std::clamp(m_zAxis,-3.0f,3.0f);
+
     m_obj->SendMessage(NetworkMessages::MOVEMENT_PLAYER + ";" + to_str(m_zAxis) +  ";0.0");
 }
 
 void AresGameInputFrame::OnBitmapButton5Click(wxCommandEvent& event)
 {
     m_zAxis = -m_step ;
-    //m_zAxis = std::clamp(m_zAxis,-3.0f,3.0f);
-    //m_front = m_front - step;
-    //m_back = m_back + step;
-    //m_front = std::clamp(m_front,0.0f,100.0f);
-    //m_back = std::clamp(m_back,0.0f,100.0f);
-    //m_obj->SendMessage(NetworkMessages::MOVEMENT_PLAYER + ";" + to_str(m_front) + ";" + to_str(m_back) + ";" + to_str(m_left) + ";" + to_str(m_right));
+
     m_obj->SendMessage(NetworkMessages::MOVEMENT_PLAYER + ";" + to_str(m_zAxis) +  ";0.0");
 }
 
 void AresGameInputFrame::OnBitmapButton4Click(wxCommandEvent& event)
 {
     m_xAxis = -m_step;
-    //m_xAxis = std::clamp(m_xAxis,-3.0f,3.0f);
-    //m_left = m_left + step;
-    //m_right = m_right - step;
-    //m_left = std::clamp(m_left,0.0f,100.0f);
-    //m_right = std::clamp(m_right,0.0f,100.0f);
-    //m_obj->SendMessage(NetworkMessages::MOVEMENT_PLAYER + ";" + to_str(m_front) + ";" + to_str(m_back) + ";" + to_str(m_left) + ";" + to_str(m_right));
+
     m_obj->SendMessage(NetworkMessages::MOVEMENT_PLAYER + ";0.0;" + to_str(m_xAxis));
 }
 
 void AresGameInputFrame::OnBitmapButton3Click(wxCommandEvent& event)
 {
     m_xAxis = m_step;
-    //m_xAxis = std::clamp(m_xAxis,-3.0f,3.0f);
-    //m_left = m_left - step;
-    //m_right = m_right + step;
-    //m_left = std::clamp(m_left,0.0f,100.0f);
-    //m_right = std::clamp(m_right,0.0f,100.0f);
-    //m_obj->SendMessage(NetworkMessages::MOVEMENT_PLAYER + ";" + to_str(m_front) + ";" + to_str(m_back) + ";" + to_str(m_left) + ";" + to_str(m_right));
+
     m_obj->SendMessage(NetworkMessages::MOVEMENT_PLAYER +  ";0.0;"  + to_str(m_xAxis));
 }
 

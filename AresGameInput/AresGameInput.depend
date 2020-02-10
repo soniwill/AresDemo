@@ -1925,3 +1925,166 @@
 	<vector>
 	<string>
 
+1581292441 source:/home/willian/src/AresDemo/AresDemo/AresGameInput/wx_pch.h
+	<wx/wxprec.h>
+	<wx/wx.h>
+
+1581292441 source:/home/willian/src/AresDemo/AresDemo/AresGameInput/AresGameInputApp.cpp
+	"wx_pch.h"
+	"AresGameInputApp.h"
+	"AresGameInputMain.h"
+	<wx/image.h>
+
+1581292441 /home/willian/src/AresDemo/AresDemo/AresGameInput/wx_pch.h
+	<wx/wxprec.h>
+	<wx/wx.h>
+
+1581292441 /home/willian/src/AresDemo/AresDemo/AresGameInput/AresGameInputApp.h
+	<wx/app.h>
+
+1581292441 /home/willian/src/AresDemo/AresDemo/AresGameInput/AresGameInputMain.h
+	<wx/bmpbuttn.h>
+	<wx/sizer.h>
+	<wx/button.h>
+	<wx/menu.h>
+	<wx/panel.h>
+	<wx/slider.h>
+	<wx/statusbr.h>
+	<wx/statline.h>
+	<wx/frame.h>
+	<wx/stattext.h>
+	<wx/textctrl.h>
+	"include/NetworkThread.h"
+	"include/NetworkTcpControl.h"
+	"include/NetworkTcpHandle.h"
+	<algorithm>
+	"include/NetworkObject.h"
+	"include/NetworkMessages.h"
+	"include/Util.h"
+	<thread>
+	<vector>
+	<chrono>
+
+1581292441 /home/willian/src/AresDemo/AresDemo/AresGameInput/include/NetworkThread.h
+	<wx/thread.h>
+	"../AresGameInputMain.h"
+	<assert.h>
+	<stdio.h>
+	<stdarg.h>
+	<string.h>
+	<algorithm>
+	<string>
+	<random>
+	<chrono>
+	<thread>
+	<mutex>
+	<queue>
+	<map>
+	<cctype>
+	<steam/steamnetworkingsockets.h>
+	<steam/isteamnetworkingutils.h>
+	<steam/steam_api.h>
+	<windows.h>
+	<unistd.h>
+	<signal.h>
+
+1581292441 /home/willian/src/AresDemo/AresDemo/AresGameInput/include/NetworkTcpControl.h
+	<NetworkControl.h>
+	<sys/types.h>
+	<unistd.h>
+	<netdb.h>
+	<string.h>
+	<string>
+	<errno.h>
+
+1581292441 /home/willian/src/AresDemo/AresDemo/AresGameInput/include/NetworkControl.h
+	<sys/socket.h>
+	<arpa/inet.h>
+
+1581292441 /home/willian/src/AresDemo/AresDemo/AresGameInput/include/NetworkTcpHandle.h
+	<NetworkHandle.h>
+
+1581292441 /home/willian/src/AresDemo/AresDemo/AresGameInput/include/NetworkHandle.h
+	<string.h>
+	<string>
+
+1581292441 /home/willian/src/AresDemo/AresDemo/AresGameInput/include/NetworkObject.h
+	<iostream>
+	<sys/types.h>
+	<unistd.h>
+	<sys/socket.h>
+	<netdb.h>
+	<arpa/inet.h>
+	<string.h>
+	<string>
+	"NetworkFactory.h"
+	"NetworkTcpFactory.h"
+	"NetworkControl.h"
+	"NetworkHandle.h"
+	<queue>
+	"LoggerFile.h"
+	<thread>
+
+1581292441 /home/willian/src/AresDemo/AresDemo/AresGameInput/include/NetworkFactory.h
+	"NetworkControl.h"
+	"NetworkHandle.h"
+
+1581292441 /home/willian/src/AresDemo/AresDemo/AresGameInput/include/NetworkTcpFactory.h
+	<NetworkFactory.h>
+
+1581292441 /home/willian/src/AresDemo/AresDemo/AresGameInput/include/LoggerFile.h
+	<string>
+	<fstream>
+	"Logger.h"
+	"TimeUtil.h"
+
+1581292441 /home/willian/src/AresDemo/AresDemo/AresGameInput/include/Logger.h
+	<string>
+
+1581292441 /home/willian/src/AresDemo/AresDemo/AresGameInput/include/TimeUtil.h
+	<chrono>
+	<ctime>
+	<iostream>
+	<sstream>
+	<string>
+	<ratio>
+
+1581292441 /home/willian/src/AresDemo/AresDemo/AresGameInput/include/NetworkMessages.h
+	<string.h>
+
+1581292441 /home/willian/src/AresDemo/AresDemo/AresGameInput/include/Util.h
+	<vector>
+	<string>
+
+1581292441 source:/home/willian/src/AresDemo/AresDemo/AresGameInput/src/LoggerFile.cpp
+	"LoggerFile.h"
+
+1581292441 source:/home/willian/src/AresDemo/AresDemo/AresGameInput/src/NetworkManager.cpp
+	"NetworkManager.h"
+
+1581292441 /home/willian/src/AresDemo/AresDemo/AresGameInput/include/NetworkManager.h
+
+1581292441 source:/home/willian/src/AresDemo/AresDemo/AresGameInput/src/NetworkMessages.cpp
+	"NetworkMessages.h"
+
+1581292441 source:/home/willian/src/AresDemo/AresDemo/AresGameInput/src/NetworkTcpControl.cpp
+	"NetworkTcpControl.h"
+
+1581292441 source:/home/willian/src/AresDemo/AresDemo/AresGameInput/src/NetworkTcpFactory.cpp
+	"NetworkTcpFactory.h"
+	"NetworkTcpControl.h"
+	"NetworkTcpHandle.h"
+
+1581292441 source:/home/willian/src/AresDemo/AresDemo/AresGameInput/src/NetworkTcpHandle.cpp
+	"NetworkTcpHandle.h"
+
+1581292441 source:/home/willian/src/AresDemo/AresDemo/AresGameInput/src/NetworkThread.cpp
+	"NetworkThread.h"
+	"NetworkObject.h"
+
+1581292441 source:/home/willian/src/AresDemo/AresDemo/AresGameInput/src/TimeUtil.cpp
+	"TimeUtil.h"
+
+1581292441 source:/home/willian/src/AresDemo/AresDemo/AresGameInput/src/Util.cpp
+	"Util.h"
+
