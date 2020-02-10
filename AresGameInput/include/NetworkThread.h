@@ -17,11 +17,6 @@
 #include <map>
 #include <cctype>
 
-#include <steam/steamnetworkingsockets.h>
-#include <steam/isteamnetworkingutils.h>
-#ifndef STEAMNETWORKINGSOCKETS_OPENSOURCE
-#include <steam/steam_api.h>
-#endif
 
 #ifdef WIN32
 	#include <windows.h> // Ug, for NukeProcess -- see below
